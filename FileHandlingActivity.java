@@ -41,6 +41,45 @@ public class FileHandlingActivity {
         writer3.close();
         
         // d. Read and display file contents
+        System.out.println("==File Contents==");
+        String line;
+
+        // file 1
+        BufferedReader reader1 = new BufferedReader(new FileReader(file1));
+        String contents1 = "";
+
+        while ((line = reader1.readLine()) != null) {
+            contents1 += line;
+
+        }
+
+        reader1.close();
+        System.out.println("File 1: " + contents1);
+
+        // file 2
+        BufferedReader reader2 = new BufferedReader(new FileReader(file2));
+        String contents2 = "";
+
+        while ((line = reader2.readLine()) != null) {
+            contents2 += line;
+
+        }
+
+        reader2.close();
+        System.out.println("File 1: " + contents2);
+
+        // file 3
+        BufferedReader reader3 = new BufferedReader(new FileReader(file3));
+        String contents3 = "";
+
+        while ((line = reader3.readLine()) != null) {
+            contents3 += line;
+
+        }
+
+        reader3.close();
+        System.out.println("File 1: " + contents3);
+
         
         // e. Create backup directory
         
