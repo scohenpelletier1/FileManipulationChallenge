@@ -1,0 +1,4 @@
+-created main directory
+-created "notes.txt"
+-created "data.txt"
+-created "log.txt"

@@ -11,15 +11,15 @@ public class FileHandlingActivity {
         // b. Create three text files
         
         // file 1
-        File file1 = new File("notes.txt");
+        File file1 = new File("JavaFileSystem/notes.txt");
         file1.createNewFile();
 
         // file 2
-        File file2 = new File("data.txt");
+        File file2 = new File("JavaFileSystem/data.txt");
         file2.createNewFile();
 
         // file3
-        File file3 = new File("log.txt");
+        File file3 = new File("JavaFileSystem/log.txt");
         file3.createNewFile();
         
         // c. Write messages to files
@@ -83,11 +83,11 @@ public class FileHandlingActivity {
 
         
         // e. Create backup directory
-        File backupDir = new File("JavaFileSystem\\Backup");
+        File backupDir = new File("JavaFileSystem/Backup");
         backupDir.mkdir();
         
         // f. Copy contents to backup file
-        File backupFile = new File("JavaFileSystem\\Backup\\backup.txt");
+        File backupFile = new File("JavaFileSystem/Backup/backup.txt");
 
         BufferedWriter backup = new BufferedWriter(new FileWriter(backupFile));
         backup.write("==notes.txt==\n" + contents1 + "\n\n==data.txt==\n" + contents2 + "\n\nlog.txt\n" + contents3);
@@ -100,17 +100,19 @@ public class FileHandlingActivity {
 
         File[] files1 = mainDir.listFiles();
         for (File file : files1) {
-            System.out.println(file + "\n");
+            System.out.println(file);
 
         }
+
+        System.out.println();
 
         // Backup
         System.out.println("==Files in Backup==");
 
         File[] files2 = backupDir.listFiles();
-        
+
         for (File file : files2) {
-            System.out.println(file + "\n");
+            System.out.println(file);
 
         }
 
