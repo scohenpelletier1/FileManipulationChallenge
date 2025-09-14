@@ -23,6 +23,22 @@ public class FileHandlingActivity {
         file3.createNewFile();
         
         // c. Write messages to files
+
+        // file 1
+        BufferedWriter writer1 = new BufferedWriter(new PrintWriter(file1));
+        writer1.write("-make sure to finish all changes\n-test code\n-remember plans for world domination");
+        writer1.close();
+
+        // file 2
+        BufferedWriter writer2 = new BufferedWriter(new PrintWriter(file2));
+        writer2.write("01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001");
+        writer2.close();
+
+
+        // file 3
+        BufferedWriter writer3 = new BufferedWriter(new PrintWriter(file3));
+        writer3.write("-created main directory\n-created \"notes.txt\"\n-created \"data.txt\"\n-created \"log.txt\"");
+        writer3.close();
         
         // d. Read and display file contents
         
