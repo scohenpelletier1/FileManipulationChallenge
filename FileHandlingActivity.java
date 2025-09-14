@@ -82,6 +82,8 @@ public class FileHandlingActivity {
 
         
         // e. Create backup directory
+        File backupDir = new File("JavaFileSystem\\Backup");
+        backupDir.mkdir();
         
         // f. Copy contents to backup file
         
