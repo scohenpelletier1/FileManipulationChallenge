@@ -86,6 +86,11 @@ public class FileHandlingActivity {
         backupDir.mkdir();
         
         // f. Copy contents to backup file
+        File backupFile = new File("JavaFileSystem\\Backup\\backup.txt");
+
+        BufferedWriter backup = new BufferedWriter(new FileWriter(backupFile));
+        backup.write("==notes.txt==\n" + contents1 + "\n\n==data.txt==\n" + contents2 + "\n\nlog.txt\n" + contents3);
+        backup.close();
         
         // g. List all files in both directories
 
