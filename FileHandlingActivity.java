@@ -66,7 +66,7 @@ public class FileHandlingActivity {
         }
 
         reader2.close();
-        System.out.println("File 1: " + contents2);
+        System.out.println("File 2: " + contents2);
 
         // file 3
         BufferedReader reader3 = new BufferedReader(new FileReader(file3));
@@ -78,7 +78,8 @@ public class FileHandlingActivity {
         }
 
         reader3.close();
-        System.out.println("File 1: " + contents3);
+        System.out.println("File 3: " + contents3);
+        System.out.println();
 
         
         // e. Create backup directory
@@ -93,6 +94,27 @@ public class FileHandlingActivity {
         backup.close();
         
         // g. List all files in both directories
+
+        // JavaFileSystem
+        System.out.println("==Files in JavaFileSystem==");
+
+        File[] files1 = mainDir.listFiles();
+        for (File file : files1) {
+            System.out.println(file + "\n");
+
+        }
+
+        // Backup
+        System.out.println("==Files in Backup==");
+
+        File[] files2 = backupDir.listFiles();
+        
+        for (File file : files2) {
+            System.out.println(file + "\n");
+
+        }
+
+        System.out.println();
 
     }
 
