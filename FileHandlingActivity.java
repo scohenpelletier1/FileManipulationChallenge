@@ -1,122 +1,86 @@
 import java.io.*;
 
 public class FileHandlingActivity {
-    public static void main(String[] args) throws IOException {
-        // Your code here
-        
-        // a. Create main directory
-        File mainDir = new File("JavaFileSystem");
+    // creates a directory
+    public static void makeDirectory(String directoryPath) {
+        File mainDir = new File(directoryPath);
         mainDir.mkdir();
-        
-        // b. Create three text files
-        
-        // file 1
-        File file1 = new File("JavaFileSystem/notes.txt");
-        file1.createNewFile();
 
-        // file 2
-        File file2 = new File("JavaFileSystem/data.txt");
-        file2.createNewFile();
+    }
 
-        // file3
-        File file3 = new File("JavaFileSystem/log.txt");
-        file3.createNewFile();
-        
-        // c. Write messages to files
+    // creates text files
+    public static void makeFile(String filePath) throws IOException {
+        File file = new File(filePath);
+        file.createNewFile();
+    
+    }
+    
+    public static void writeFile(String filePath, String message) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+        writer.write(message);
+        writer.close();
+    
+    }
 
-        // file 1
-        BufferedWriter writer1 = new BufferedWriter(new PrintWriter(file1));
-        writer1.write("-make sure to finish all changes\n-test code\n-remember plans for world domination");
-        writer1.close();
+    public static String readFile(String filePath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String line;
+        String contents = "";
 
-        // file 2
-        BufferedWriter writer2 = new BufferedWriter(new PrintWriter(file2));
-        writer2.write("01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001");
-        writer2.close();
+        while ((line = reader.readLine()) != null) {
+            contents += line;
 
+        }
 
-        // file 3
-        BufferedWriter writer3 = new BufferedWriter(new PrintWriter(file3));
-        writer3.write("-created main directory\n-created \"notes.txt\"\n-created \"data.txt\"\n-created \"log.txt\"");
-        writer3.close();
-        
-        // d. Read and display file contents
-        System.out.println("==File Contents==");
+        reader.close();
+        return contents;
+    
+    }
+
+    public static void cloneFile(String newFile, String oldFile) throws IOException {
+        // get to the end of the new file so you don't overwrite anything
+        BufferedReader newReader = new BufferedReader(new FileReader(newFile));
+        BufferedReader oldReader = new BufferedReader(new FileReader(oldFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(newFile, true));
+
+        // for writing
         String line;
 
-        // file 1
-        BufferedReader reader1 = new BufferedReader(new FileReader(file1));
-        String contents1 = "";
-
-        while ((line = reader1.readLine()) != null) {
-            contents1 += line;
+        // get until the end of the new file's writing
+        while ((line = newReader.readLine()) != null) {
+            // keep reading
 
         }
 
-        reader1.close();
-        System.out.println("File 1: " + contents1);
+        newReader.close();
 
-        // file 2
-        BufferedReader reader2 = new BufferedReader(new FileReader(file2));
-        String contents2 = "";
+        // write the contents of the file
+        writer.write("==" + oldFile + "==\n");
 
-        while ((line = reader2.readLine()) != null) {
-            contents2 += line;
-
-        }
-
-        reader2.close();
-        System.out.println("File 2: " + contents2);
-
-        // file 3
-        BufferedReader reader3 = new BufferedReader(new FileReader(file3));
-        String contents3 = "";
-
-        while ((line = reader3.readLine()) != null) {
-            contents3 += line;
+        while ((line = oldReader.readLine()) != null) {
+            writer.write(line);
+            writer.newLine();
 
         }
 
-        reader3.close();
-        System.out.println("File 3: " + contents3);
-        System.out.println();
+        writer.write("\n");
 
+        oldReader.close();
+        writer.close();
+    
+    }
+
+
+    public static String listFiles(String directory) {
+        File[] files = new File(directory).listFiles();
+        String fileOutput = "";
+
+        for (File file : files) {
+            fileOutput += file + "\n";
         
-        // e. Create backup directory
-        File backupDir = new File("JavaFileSystem/Backup");
-        backupDir.mkdir();
-        
-        // f. Copy contents to backup file
-        File backupFile = new File("JavaFileSystem/Backup/backup.txt");
-
-        BufferedWriter backup = new BufferedWriter(new FileWriter(backupFile));
-        backup.write("==notes.txt==\n" + contents1 + "\n\n==data.txt==\n" + contents2 + "\n\nlog.txt\n" + contents3);
-        backup.close();
-        
-        // g. List all files in both directories
-
-        // JavaFileSystem
-        System.out.println("==Files in JavaFileSystem==");
-
-        File[] files1 = mainDir.listFiles();
-        for (File file : files1) {
-            System.out.println(file);
-
         }
 
-        System.out.println();
-
-        // Backup
-        System.out.println("==Files in Backup==");
-
-        File[] files2 = backupDir.listFiles();
-
-        for (File file : files2) {
-            System.out.println(file);
-
-        }
-
-        System.out.println();
+        return fileOutput;
 
     }
 

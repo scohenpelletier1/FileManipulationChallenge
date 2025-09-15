@@ -1,8 +1,13 @@
-==notes.txt==
--make sure to finish all changes-test code-remember plans for world domination
+==JavaFileSystem/notes.txt==
+-make sure to finish all changes
+-test code
+-remember plans for world domination
 
-==data.txt==
+==JavaFileSystem/data.txt==
 01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001
 
-log.txt
--created main directory-created "notes.txt"-created "data.txt"-created "log.txt"
+==JavaFileSystem/log.txt==
+-created main directory
+-created "notes.txt"
+-created "data.txt"
+-created "log.txt"
